@@ -1,0 +1,6 @@
+network.host: _site_
+cluster.name: cello-analytics
+node.name: node-1
+network.publish_host: MASTER_IP
+discovery.zen.ping.unicast.hosts: ["MASTER_IP","SLAVE1_IP","SLAVE2_IP"]
+

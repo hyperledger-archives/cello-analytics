@@ -1,0 +1,8 @@
+network.host: _site_
+cluster.name: cello-analytics
+node.name: node-2
+network.publish_host: SLAVE1_IP
+#in slave2 change node.name and network.publish_host's value to slave2
+#node.name: node-3
+#network.publish_host: SLAVE2_IP
+discovery.zen.ping.unicast.hosts: ["MASTER_IP","SLAVE1_IP","SLAVE2_IP"]
