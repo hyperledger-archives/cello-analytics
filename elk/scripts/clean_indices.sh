@@ -1,3 +1,7 @@
+# Copyright IBM Corp., All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 # install curator, sudo pip install elasticsearch-curator
 # only save latest 3 days indices
 # add to crontab: 0 1 * * *  /root/elk/clean_indices.sh

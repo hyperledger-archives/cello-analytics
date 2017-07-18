@@ -1,4 +1,8 @@
 # This compose file will boot a elk cluster.
+# Copyright IBM Corp., All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 #   elasticsearch will listen on local 9200, and  use /opt/data/elasticsearch for storage.
 #   es node can scale out.
 #   kibana will liten on local 5601.

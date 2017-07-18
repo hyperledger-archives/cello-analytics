@@ -51,3 +51,6 @@ curl -XGET http://MASTER_IP:9200/_cat/nodes?v
 ## Worker Node
 
 Use logspout to [collect log msg](./logspout.md).
+
+## License <a name="license"></a>
+The Hyperledger Project uses the [Apache License Version 2.0](LICENSE) software license.

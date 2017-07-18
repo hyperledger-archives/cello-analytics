@@ -16,3 +16,6 @@ $ docker run \
 	gliderlabs/logspout \
 	syslog+udp://LOGSTASH_NODE:5000
 ```
+
+## License <a name="license"></a>
+The Hyperledger Project uses the [Apache License Version 2.0](LICENSE) software license.
