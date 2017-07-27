@@ -1,0 +1,204 @@
+[
+  {
+    "_id": "host_stat",
+    "_type": "dashboard",
+    "_source": {
+      "title": "host_stat",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":5,\"id\":\"host_avg_latency\",\"panelIndex\":2,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"host_cpu_percentage\",\"panelIndex\":3,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"host_max_latency\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"host_disk_io\",\"panelIndex\":5,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"host_mem_percentage\",\"panelIndex\":6,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"host_network_io\",\"panelIndex\":7,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-5\":{\"vis\":{\"legendOpen\":false}},\"P-6\":{\"vis\":{\"legendOpen\":false}},\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-4\":{\"vis\":{\"legendOpen\":false}},\"P-2\":{\"vis\":{\"legendOpen\":false}},\"P-7\":{\"vis\":{\"legendOpen\":false}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"_type:host\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "cluster_stat",
+    "_type": "dashboard",
+    "_source": {
+      "title": "cluster_stat",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"cluster_max_latency\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"cluster_avg_latency\",\"panelIndex\":2,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"cluster_network_io\",\"panelIndex\":3,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"cluster_cpu_percentage\",\"panelIndex\":4,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"cluster_mem_percentage\",\"panelIndex\":5,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"cluster_disk_io\",\"panelIndex\":6,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-1\":{\"vis\":{\"legendOpen\":false}},\"P-2\":{\"vis\":{\"legendOpen\":false}},\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-6\":{\"vis\":{\"legendOpen\":false}},\"P-4\":{\"vis\":{\"legendOpen\":false}},\"P-5\":{\"vis\":{\"legendOpen\":false}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "cluster_mem_percentage",
+    "_type": "visualization",
+    "_source": {
+      "title": "cluster_mem_percentage",
+      "visState": "{\"title\":\"cluster_mem_percentage\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"memory_percentage\",\"customLabel\":\"Mem (%)\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"cluster_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:cluster\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "cluster_avg_latency",
+    "_type": "visualization",
+    "_source": {
+      "title": "cluster_avg_latency",
+      "visState": "{\"title\":\"cluster_avg_latency\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"avg_latency\",\"customLabel\":\"Average Latency (ms)\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"cluster_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:cluster\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "cluster_max_latency",
+    "_type": "visualization",
+    "_source": {
+      "title": "cluster_max_latency",
+      "visState": "{\"title\":\"cluster_max_latency\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"max_latency\",\"customLabel\":\"Max Latency (ms)\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"cluster_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"_type:cluster\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "host_avg_latency",
+    "_type": "visualization",
+    "_source": {
+      "title": "host_avg_latency",
+      "visState": "{\"title\":\"host_avg_latency\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"avg\",\"schema\":\"metric\",\"params\":{\"field\":\"avg_latency\",\"customLabel\":\"Average Latency (ms)\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:host\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "cluster_network_io",
+    "_type": "visualization",
+    "_source": {
+      "title": "cluster_network_io",
+      "visState": "{\"title\":\"cluster_network_io\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"network_rx\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"network_tx\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"cluster_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:cluster\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "host_max_latency",
+    "_type": "visualization",
+    "_source": {
+      "title": "host_max_latency",
+      "visState": "{\"title\":\"host_max_latency\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":true,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"max_latency\",\"customLabel\":\"Max Latency (ms)\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:host\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "cluster_disk_io",
+    "_type": "visualization",
+    "_source": {
+      "title": "cluster_disk_io",
+      "visState": "{\"title\":\"cluster_disk_io\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"block_read\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"block_write\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"cluster_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:cluster\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "host_network_io",
+    "_type": "visualization",
+    "_source": {
+      "title": "host_network_io",
+      "visState": "{\"title\":\"host_network_io\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"network_rx\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"network_tx\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:host\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "host_disk_io",
+    "_type": "visualization",
+    "_source": {
+      "title": "host_disk_io",
+      "visState": "{\"title\":\"host_disk_io\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"block_read\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"block_write\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:host\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "cluster_cpu_percentage",
+    "_type": "visualization",
+    "_source": {
+      "title": "cluster_cpu_percentage",
+      "visState": "{\"title\":\"cluster_cpu_percentage\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"cpu_percentage\",\"customLabel\":\"CPU (%)\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"cluster_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"_type:cluster\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "host_cpu_percentage",
+    "_type": "visualization",
+    "_source": {
+      "title": "host_cpu_percentage",
+      "visState": "{\"title\":\"host_cpu_percentage\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"cpu_percentage\",\"customLabel\":\"CPU (%)\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:host\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "host_mem_percentage",
+    "_type": "visualization",
+    "_source": {
+      "title": "host_mem_percentage",
+      "visState": "{\"title\":\"host_mem_percentage\",\"type\":\"line\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"interpolate\":\"linear\",\"radiusRatio\":9,\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"showCircles\":true,\"smoothLines\":false,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"max\",\"schema\":\"metric\",\"params\":{\"field\":\"memory_percentage\",\"customLabel\":\"Mem (%)\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"host_name\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"hyperledger_monitor\",\"query\":{\"query_string\":{\"query\":\"_type:host\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]

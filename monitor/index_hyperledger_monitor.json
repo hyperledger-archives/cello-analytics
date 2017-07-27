@@ -1,0 +1,114 @@
+{
+  "settings": {
+    "number_of_shards": 1
+  },
+  "mappings": {
+    "cluster": {
+      "properties": {
+        "timestamp": {
+          "type": "date",
+          "format": "strict_date_optional_time||yyyy-MM-dd HH:mm:ss||epoch_millis"
+        },
+        "cluster_id": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "cluster_name": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "cpu_percentage": {
+          "type": "float"
+        },
+        "memory_usage": {
+          "type": "float"
+        },
+        "memory_limit": {
+          "type": "float"
+        },
+        "memory_percentage": {
+          "type": "float"
+        },
+        "network_rx": {
+          "type": "float"
+        },
+        "network_tx": {
+          "type": "float"
+        },
+        "block_read": {
+          "type": "float"
+        },
+        "block_write": {
+          "type": "float"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "max_latency": {
+          "type": "float"
+        },
+        "avg_latency": {
+          "type": "float"
+        },
+        "min_latency": {
+          "type": "float"
+        },
+        "latencies": {
+          "type": "float"
+        }
+      }
+    },
+    "host": {
+      "properties": {
+        "timestamp": {
+          "type": "date",
+          "format": "strict_date_optional_time||yyyy-MM-dd HH:mm:ss||epoch_millis"
+        },
+        "host_id": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "host_name": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "cpu_percentage": {
+          "type": "float"
+        },
+        "memory_usage": {
+          "type": "float"
+        },
+        "memory_limit": {
+          "type": "float"
+        },
+        "memory_percentage": {
+          "type": "float"
+        },
+        "network_rx": {
+          "type": "float"
+        },
+        "network_tx": {
+          "type": "float"
+        },
+        "block_read": {
+          "type": "float"
+        },
+        "block_write": {
+          "type": "float"
+        },
+        "size": {
+          "type": "integer"
+        },
+        "max_latency": {
+          "type": "float"
+        },
+        "avg_latency": {
+          "type": "float"
+        },
+        "min_latency": {
+          "type": "float"
+        }
+      }
+    }
+  }
+}
