@@ -1,4 +1,4 @@
-Cello Analytics
+# Cello Analytics
 
 Analytics Service for [Cello](https://wiki.hyperledger.org/projects/cello)!
 
