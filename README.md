@@ -2,8 +2,7 @@
 
 Analytics Service for [Cello](https://wiki.hyperledger.org/projects/cello)!
 
-**Note:** This is a **read-only mirror** of the formal [Gerrit](https://gerrit.hyperledger.org/r/#/admin/projects/cello-analytics) repository,
-where active development is ongoing. Issue tracking is handled in [Jira](https://jira.hyperledger.org/projects/CE/issues/).
+**Note:** Issue tracking is handled in [Jira](https://jira.hyperledger.org/projects/CE/issues/).
 
 ## Incubation Notice
 
